@@ -1,15 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import Pokelist from "./pages/Pokelist";
 import Pokemon from "./pages/Pokemon";
 import useParams from "react-router-dom";
+import styles from "./styles/primary_style.css";
+import PokedexButton from './components/PokedexButton';
+import Header from './components/Header';
+import useSticky from './hooks/useSticky';
+import logo from './logo.svg';
+import './App.css';
 
 function App() {
+  const { isSticky, element } = useSticky()
   return (
-    <BrowserRouter>
+    <BrowserRouter style={{ width: '100vw' }}>
+      <div ref={element} id="HEADER">
+        <Header sticky={isSticky}/>
+      </div>
       <Routes>
-        <Route path="/" element={<Link to="/pokemon/"><button>pokedex</button></Link>}/>
+        <Route path="/" element={<Homepage/>}/>
         <Route path="/pokemon/" element={<Pokelist/>}/>
         <Route path="pokemon/:name" element={<Pokemon/>}/>
       </Routes>
@@ -17,6 +26,30 @@ function App() {
   );
 }
 
+
+
+class Homepage extends Component {
+  render() {
+    return (
+      <div className="App" style={{ width: '100vw' }}>
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>
+            Welcome! Select one of the apps in the navbar.
+          </p>
+          <a
+            className="App-link"
+            href="https://reactjs.org"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Learn React
+          </a>
+        </header>
+      </div>
+    );
+  }
+}
 
 // needa use pokeapi
 // fetch list of pokemon

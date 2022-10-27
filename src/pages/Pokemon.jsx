@@ -1,7 +1,13 @@
 import React, { useEffect, useState} from "react";
-import styles from "../styles/Pokelist.module.css";
-import { useParams } from "react-router-dom";
-import logo from '../logo.svg';
+import styles from "../styles/primary_style.css";
+import styles2 from "../styles/Pokemon.module.css"
+import { useParams, Link } from "react-router-dom";
+import PokedexButton from '../components/PokedexButton';
+import SpriteElement from "../components/SpriteElement";
+import TypeList from "../components/TypeList";
+
+
+
 export default function Pokemon() {
     const {name} = useParams();
     const [Poke, setPoke] = useState({});
@@ -10,39 +16,27 @@ export default function Pokemon() {
         const getPoke = async () => {
             await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
             .then(res => {
-                console.log(res);
                 res.json()
                 .then(data => 
                     setPoke(data))})
             .catch(err=>console.log(err));
         }
         getPoke();
-        console.log(`https://pokeapi.co/api/v2/pokemon/${name}`);
-        console.log(Poke);
     }, []);
 
     return(
-        <div className={styles.Item}>
-            <body>
-                <h1>{`${Poke.name}`}</h1>
-
-                <img style={{ width: 200, height: 200 }} src={`${getValidSprite(Poke)}`} alt={`${Poke.name}`}/>
-            </body>
+        <div className="Container JustifyCenter Column BodyPadding PageWidth">
+            <PokedexButton text="Back to Pokédex" /> 
+            <button className={`${styles2.Name}`}>
+                {`${Poke.name}`.toUpperCase()}
+            </button>
+            <div className="Container">
+                <TypeList types={Poke.types}/>
+                <SpriteElement pokemonEntry={Poke} />
+                <TypeList types={Poke.types}/>
+            </div>
+            <PokedexButton text="Back to Pokédex" />
         </div>
     )
 }
 
-function getValidSprite(pokemon_entry){
-        if(pokemon_entry.sprites === undefined){
-        }else if(pokemon_entry.sprites.front_default === null){
-            for (const [_key, value] of Object.entries(pokemon_entry.sprites)){
-                if(value === null){
-                }else{
-                    return value;
-                }
-            }
-        }else{
-            return pokemon_entry.sprites.front_default;
-        }
-        return "../logo.svg";
-}
