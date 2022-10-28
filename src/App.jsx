@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Pokelist from "./pages/Pokelist";
 import Pokemon from "./pages/Pokemon";
-import useParams from "react-router-dom";
-import styles from "./styles/primary_style.css";
-import PokedexButton from './components/PokedexButton';
+import "./styles/primary_style.css";
 import Header from './components/Header';
 import useSticky from './hooks/useSticky';
 import logo from './logo.svg';
@@ -35,7 +33,7 @@ class Homepage extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            Welcome! Select one of the apps in the navbar.
+            Welcome! Select one of the apps from the navbar.
           </p>
           <a
             className="App-link"

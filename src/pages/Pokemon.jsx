@@ -1,10 +1,13 @@
 import React, { useEffect, useState} from "react";
-import styles from "../styles/primary_style.css";
+import "../styles/primary_style.css";
 import styles2 from "../styles/Pokemon.module.css"
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import PokedexButton from '../components/PokedexButton';
 import SpriteElement from "../components/SpriteElement";
 import TypeList from "../components/TypeList";
+import { StatListArray } from "../components/StatList";
+import StatList from "../components/StatList";
+
 
 
 
@@ -30,10 +33,19 @@ export default function Pokemon() {
             <button className={`${styles2.Name}`}>
                 {`${Poke.name}`.toUpperCase()}
             </button>
-            <div className="Container">
-                <TypeList types={Poke.types}/>
-                <SpriteElement pokemonEntry={Poke} />
-                <TypeList types={Poke.types}/>
+            <div className="Container" style={{ width: '75vw', flex: '1 1 auto', flexWrap:'nowrap'}}>
+                <div style={{width: '15vw', 'min-width': 'var(--Pokemon-min-width)'}}>
+                    <StatList stats={Poke.stats}/>
+                </div>
+                <div className="Container" style={{width: '25vw', 'min-width': 'var(--Pokemon-min-width)'}}>
+                    <SpriteElement pokemonEntry={Poke} />
+                </div>
+                <div className="Column" style={{width: '15vw', 'min-width': 'var(--Pokemon-min-width)'}}>
+                    <TypeList types={Poke.types}/>
+                    <div className="StatListHalf">
+                        <StatListArray height={Poke.height} weight={Poke.weight} />
+                    </div>
+                </div>
             </div>
             <PokedexButton text="Back to Pokédex" />
         </div>

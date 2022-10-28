@@ -1,3 +1,8 @@
+:root {
+    --Pokemon-entry-height: 225px;
+    --Pokemon-min-width: 225px;
+}
+
 .Container{
     display: flex;
     flex-direction: row;
@@ -14,6 +19,13 @@
 .JustifyCenter {
     justify-content: center;
 }
+.JustifyAround {
+    justify-content: space-around;
+}
+.JustifyBetween {
+    justify-content: space-between;
+}
+
 
 .Column {
     flex-direction: column;
@@ -61,12 +73,13 @@
 }
 
 .Sprite:hover {
-    transform: scale(1.5);
+    transition: all 250ms;
+    transform: scale(1.25);
 }
 
 .SpriteWindow {
-    width: 225px;
-    height: 225px;
+    width: var(--Pokemon-entry-height);
+    height: var(--Pokemon-entry-height);
     border: 1px solid black;
     border-radius: 112.5px;
     background-color: white;
@@ -77,10 +90,14 @@
 }
 
 .PokedexEntry {
-    border-radius: 4pc;
-    width: 18pc;
-    height: 21pc;
+    border-radius: 50px;
+    width: 250px;
+    height: 300px;
     margin: 5px;
+}
+.PokedexEntry:hover{
+    transition: all 250ms;
+    transform: scale(1.1);
 }
 
 .Name {
@@ -91,17 +108,58 @@
     text-align: center;
     text-decoration: none;
     font-size: 32px;
-    border-radius: 4pc;
-    margin-bottom: 1pc;
-    width: 15pc;
-    height: 5pc
+    border-radius: 50px;
+    margin-bottom: 10px;
+    width: var(--Pokemon-min-width);
+    height: 60px;
+}
+
+.StatList {
+    display: flexbox;
+    background-color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    border-radius: 15px;
+    height: var(--Pokemon-entry-height);
+}
+.StatListHalf {
+    display: flexbox;
+    background-color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    border-radius: 15px;
+    height: var(--Pokemon-entry-height)/2;
+}
+.Stat {
+    text-align: left;
+    font-size: 16px;
+    border-radius: unset;
+    padding: 5px;
+}
+.Stat .head {
+    font-weight: bold;
+    padding: 5px;
+    background-color: inherit;
+    border-bottom: 1px solid rgb(200,200,200);
+    padding-bottom: 3px;
+}
+.Stat .value {
+    padding-left: 2px;
+    width: 25px;
+    border-left: 1px solid rgb(200, 200, 200);
 }
 
 .TypeList {
     display: flexbox;
     background-color: white;
-    padding: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
     border-radius: 15px;
+    height: var(--Pokemon-entry-height)/2;
+    margin-bottom: 5px;
 }
 
 .Type {
@@ -198,6 +256,16 @@
     padding: 5px;
     border-radius: inherit;
     background-color: #D685AD;
+}
+.Type .head {
+    font-weight: bold;
+    padding: 5px;
+    background-color: inherit;
+    border-radius: inherit;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    border-bottom: 1px solid rgb(200, 200, 200);
+    margin-bottom: 3px;
 }
 
 .Header {

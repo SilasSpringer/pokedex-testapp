@@ -4,11 +4,16 @@ function capitalizeFirstLetter(string) {
   }
 
 function TypeList(props) {
-    var types = props.types
+    var types = ListTypes(props.types)
     console.log(types)
     return(
         <div className="TypeList">
-            {ListTypes(types).map( (type, index) => {
+            <div className="Type">
+                <div className="head">
+                    {`Type${types.length == 1 ? "" : "s"}:`}
+                </div>
+            </div>
+            {types.map( (type, index) => {
                 return(
                     <div className="Type">
                         <div className={`${type}`}>

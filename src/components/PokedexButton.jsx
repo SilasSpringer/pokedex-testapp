@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import NavButton from "./NavButton";
 export default function PokedexButton(props){
     var text = props.text;

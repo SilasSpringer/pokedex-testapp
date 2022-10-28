@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { Link } from "react-router-dom";
-import PokedexButton from "../components/PokedexButton";
 import SpriteElement from "../components/SpriteElement";
 import "../styles/primary_style.css"
+import PokedexEntry from "../components/PokedexEntry";
 
 export default function Pokelist() {
     const [Pokelist, setPokelist] = useState([]);
@@ -19,28 +19,30 @@ export default function Pokelist() {
     }, []);
     return(
         <main>
-            <div className="Container BodyPadding PageWidth">
-                <div className="Container">
+            <div className="Container Column BodyPadding PageWidth">
+                <div className="Name">Pokédex</div>
+                <div className="Container" style={{ width: '75vw' }}>
                     {Pokelist.map((pokemon, index) => {
+                        var textsize = 16;
+                        if(getTextWidth(pokemon.name.toUpperCase(), "32px Calibri") <= 250){
+                            textsize = 32;
+                        }
                         return(
-                            <Link to={`/pokemon/${pokemon.name}`} className="Link">
-                                <button className="Container JustifyCenter Button PokedexEntry">
-                                    <SpriteElement pokemonEntry={pokemon} sprite={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index+1}.png`} />
-                                    <h1 className="NoBottomSpacing">
-                                        {`${pokemon.name}`.toUpperCase()}
-                                    </h1>
-                                    
-                                </button>
-                            </Link>
+                            <PokedexEntry pokemon={pokemon} index={index} textsize={textsize} />
                         )
                     })}
                 </div>
-                <Link to="/" className="Link">
-                    <button className="Button">
-                        Back to Home
-                    </button>
-                </Link> 
             </div>
         </main>
     )
 }
+
+
+function getTextWidth(text, font) {
+    // re-use canvas object for better performance
+    const canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
+    const context = canvas.getContext("2d");
+    context.font = font;
+    const metrics = context.measureText(text);
+    return metrics.width;
+  }
