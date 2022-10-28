@@ -33,7 +33,7 @@ export default function Pokemon() {
             <button className={`${styles2.Name}`}>
                 {`${Poke.name}`.toUpperCase()}
             </button>
-            <div className="Container" style={{ width: '75vw', flex: '1 1 auto'}}>
+            <div className="Container" style={{ width: '75vw', flex: '1 1 auto', flexWrap: 'wrap'}}>
                 <div style={{width: '15vw', 'min-width': 'var(--Pokemon-min-width)'}}>
                     <StatList stats={Poke.stats}/>
                 </div>
