@@ -5,11 +5,11 @@ export default function (props){
     var pokemon = props.pokemon;
     var id = pokemon.id;
     if(id === undefined){
-        id = props.index + 1;
+        id = (props.index) + 1;
     }
     var textsize = props.textsize;
     if(textsize === undefined){
-        textsize = 32;
+        textsize = 24;
     }
     return (
         <Link to={`/pokemon/${pokemon.name}`} className="Link">

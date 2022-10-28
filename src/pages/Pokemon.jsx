@@ -7,6 +7,7 @@ import SpriteElement from "../components/SpriteElement";
 import TypeList from "../components/TypeList";
 import { StatListArray } from "../components/StatList";
 import StatList from "../components/StatList";
+import PokemonEvolutions from "../components/PokemonEvolutions";
 
 
 
@@ -47,6 +48,7 @@ export default function Pokemon() {
                     </div>
                 </div>
             </div>
+            <PokemonEvolutions pokemon_name={`${Poke.name}`}/>
             <PokedexButton text="Back to Pokédex" />
         </div>
     )
