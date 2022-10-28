@@ -23,10 +23,8 @@ export default function Pokelist() {
                 <div className="Name">Pokédex</div>
                 <div className="Container" style={{ width: '75vw' }}>
                     {Pokelist.map((pokemon, index) => {
-                        var textsize = 16;
-                        if(getTextWidth(pokemon.name.toUpperCase(), "32px Calibri") <= 250){
-                            textsize = 32;
-                        }
+                        var textsize = 24;
+                        
                         return(
                             <PokedexEntry pokemon={pokemon} index={index} textsize={textsize} />
                         )

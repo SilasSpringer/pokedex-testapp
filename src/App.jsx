@@ -11,7 +11,7 @@ import './App.css';
 function App() {
   const { isSticky, element } = useSticky()
   return (
-    <BrowserRouter style={{ width: '100vw' }}>
+    <BrowserRouter >
       <div ref={element} id="HEADER">
         <Header sticky={isSticky}/>
       </div>
