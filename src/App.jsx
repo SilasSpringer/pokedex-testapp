@@ -19,6 +19,11 @@ function App() {
         <Route path="/" element={<Homepage/>}/>
         <Route path="/pokemon/" element={<Pokelist/>}/>
         <Route path="pokemon/:name" element={<Pokemon/>}/>
+        <Route path="/*" element={
+          <div className='Container BodyPadding PageWidth' style={{'color': 'rgb(200,200,200)'}}>
+            Sorry, we couldn't find that page. Please select a destination from the navbar.
+          </div>}
+        />
       </Routes>
     </BrowserRouter>
   );

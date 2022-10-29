@@ -20,8 +20,8 @@ export default function PokemonEvolutions(props){
             .catch(err=>console.log(err));
         }
 		if(props.pokemon_name !== undefined && props.pokemon_name !== 'undefined'){
-        	getSpecies(props.pokemon_name);
-			// console.log(props.pokemon_name, EvolutionChain)
+			getSpecies(props.pokemon_name);
+			// 	// console.log(props.pokemon_name, EvolutionChain)
 		}
     }, [props.pokemon_name]);
 	

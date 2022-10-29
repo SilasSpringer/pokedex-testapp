@@ -7,7 +7,7 @@ export default function Pokelist() {
 
     useEffect( ()=>{
         const getPokelist = async () => {
-            await fetch('https://pokeapi.co/api/v2/pokemon?limit=151&offset=0')
+            await fetch('https://pokeapi.co/api/v2/pokemon?limit=905&offset=0')
             .then(res => res.json()
                 .then(data => 
                     setPokelist(data.results)))
@@ -22,7 +22,6 @@ export default function Pokelist() {
                 <div className="Container" style={{ width: '75vw' }}>
                     {Pokelist.map((pokemon, index) => {
                         var textsize = 24;
-                        
                         return(
                             <PokedexEntry pokemon={pokemon} index={index} textsize={textsize} key={index}/>
                         )
