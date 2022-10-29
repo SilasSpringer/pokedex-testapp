@@ -1,21 +1,16 @@
-
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
-
 function TypeList(props) {
     var types = ListTypes(props.types)
-    console.log(types)
+    // console.log(types)
     return(
         <div className="TypeList">
             <div className="Type">
                 <div className="head">
-                    {`Type${types.length == 1 ? "" : "s"}:`}
+                    {`Type${types.length === 1 ? "" : "s"}:`}
                 </div>
             </div>
             {types.map( (type, index) => {
                 return(
-                    <div className="Type">
+                    <div className="Type" key={type}>
                         <div className={`${type}`}>
                             {`${type}`}
                         </div>
@@ -27,7 +22,7 @@ function TypeList(props) {
 }
 
 function ListTypes(types_json){
-    if(types_json == undefined){
+    if(types_json === undefined){
         return [];
     }
     var rv = [];
