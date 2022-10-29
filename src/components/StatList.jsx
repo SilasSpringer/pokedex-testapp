@@ -5,7 +5,7 @@ function capitalizeFirstLetter(string) {
 
 function StatList(props) {
     var stats = ListStats(props.stats)
-    console.log(stats, props)
+    // console.log(stats, props)
     return(
         <div className="StatList">
             <div className="Stat">
@@ -13,9 +13,9 @@ function StatList(props) {
                     Stats:
                 </div>
             </div>
-            {stats.map( ([stat, base_stat]) => {
+            {stats.map( ([stat, base_stat], index) => {
                 return(
-                    <div className="Container NoBackground JustifyBetween">
+                    <div className="Container NoBackground JustifyBetween" key={index}>
                         <div className="Column">
                             <div className="Stat">
                                 {`${stat}`}
@@ -46,9 +46,9 @@ export function StatListArray(props) {
                     Stats:
                 </div>
             </div>
-            {stats.map( ([stat, base_stat]) => {
+            {stats.map( ([stat, base_stat], index) => {
                 return(
-                    <div className="Container NoBackground JustifyBetween">
+                    <div className="Container NoBackground JustifyBetween" key={index}>
                         <div className="Column">
                             <div className="Stat">
                                 {`${stat}`}
@@ -69,7 +69,7 @@ export function StatListArray(props) {
 }
 
 function ListStats(stats_json){
-    if(stats_json == undefined){
+    if(stats_json === undefined){
         return [];
     }
     var rv = [];
