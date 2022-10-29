@@ -15,22 +15,20 @@ export default function Pokelist() {
         }
         getPokelist();
     }, []);
-    if(Pokelist !== undefined){
-        return(
-            <main>
-                <div className="Container Column BodyPadding PageWidth">
-                    <div className="Name">Pokédex</div>
-                    <div className="Container" style={{ width: '75vw' }}>
-                        {Pokelist.map((pokemon, index) => {
-                            var textsize = 24;
-                            
-                            return(
-                                <PokedexEntry pokemon={pokemon} index={index} textsize={textsize} key={index}/>
-                            )
-                        })}
-                    </div>
+    return(
+        <main>
+            <div className="Container Column BodyPadding PageWidth">
+                <div className="Name">Pokédex</div>
+                <div className="Container" style={{ width: '75vw' }}>
+                    {Pokelist.map((pokemon, index) => {
+                        var textsize = 24;
+                        
+                        return(
+                            <PokedexEntry pokemon={pokemon} index={index} textsize={textsize} key={index}/>
+                        )
+                    })}
                 </div>
-            </main>
-        )
-    }
+            </div>
+        </main>
+    )
 }

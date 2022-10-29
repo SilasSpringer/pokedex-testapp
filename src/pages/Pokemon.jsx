@@ -32,31 +32,29 @@ export default function Pokemon(props) {
             getPoke(name);
         }
     }, []);
-    if(Poke !== undefined){
-        return(
-            <div className="Container JustifyCenter Column BodyPadding PageWidth">
-                <PokedexButton text="Back to Pokédex" /> 
-                <button className={`${styles2.Name}`}>
-                    {`${Poke.name}`.toUpperCase()}
-                </button>
-                <div className="Container" style={{ width: '75vw', flex: '1 1 auto', flexWrap: 'wrap'}}>
-                    <div style={{width: '15vw', 'minWidth': 'var(--Pokemon-min-width)'}}>
-                        <StatList stats={Poke.stats}/>
-                    </div>
-                    <div className="Container" style={{width: '25vw', 'minWidth': 'var(--Pokemon-min-width)'}}>
-                        <SpriteElement pokemonEntry={Poke} />
-                    </div>
-                    <div className="Column" style={{width: '15vw', 'minWidth': 'var(--Pokemon-min-width)'}}>
-                        <TypeList types={Poke.types}/>
-                        <div className="StatListHalf">
-                            <StatListArray height={Poke.height} weight={Poke.weight} />
-                        </div>
+    return(
+        <div className="Container JustifyCenter Column BodyPadding PageWidth">
+            <PokedexButton text="Back to Pokédex" /> 
+            <button className={`${styles2.Name}`}>
+                {`${Poke.name}`.toUpperCase()}
+            </button>
+            <div className="Container" style={{ width: '75vw', flex: '1 1 auto', flexWrap: 'wrap'}}>
+                <div style={{width: '15vw', 'minWidth': 'var(--Pokemon-min-width)'}}>
+                    <StatList stats={Poke.stats}/>
+                </div>
+                <div className="Container" style={{width: '25vw', 'minWidth': 'var(--Pokemon-min-width)'}}>
+                    <SpriteElement pokemonEntry={Poke} />
+                </div>
+                <div className="Column" style={{width: '15vw', 'minWidth': 'var(--Pokemon-min-width)'}}>
+                    <TypeList types={Poke.types}/>
+                    <div className="StatListHalf">
+                        <StatListArray height={Poke.height} weight={Poke.weight} />
                     </div>
                 </div>
-                <PokemonEvolutions pokemon_name={`${Poke.name}`}/>
-                <PokedexButton text="Back to Pokédex" />
             </div>
-        )
-    }
+            <PokemonEvolutions pokemon_name={`${Poke.name}`}/>
+            <PokedexButton text="Back to Pokédex" />
+        </div>
+    )
 }
 
