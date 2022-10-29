@@ -26,22 +26,22 @@ export default function PokemonEvolutions(props){
     }, [props.pokemon_name]);
 	
 	var evolutions = getEvolutions(EvolutionChain);
-	if(evolutions.length > 0){
-		return(
-			<div className="Container Column BodyPadding PageWidth">
-				<div className="Name">Evolutions</div>
-				<div className="Container" style={{ width: '75vw' }}>
-					{evolutions.map( (pokemon) => {
-						var textsize = 24;
-						// console.log(pokemon)
-						return(
-							<PokedexEntry pokemon={pokemon}  textsize={textsize} key={pokemon.id}/>
-							)
-						})}
-				</div>
+	// if(evolutions.length > 0){
+	return(
+		<div className="Container Column BodyPadding PageWidth">
+			<div className="Name">Evolutions</div>
+			<div className="Container" style={{ width: '75vw' }}>
+				{evolutions.map( (pokemon) => {
+					var textsize = 24;
+					// console.log(pokemon)
+					return(
+						<PokedexEntry pokemon={pokemon}  textsize={textsize} key={pokemon.id}/>
+						)
+					})}
 			</div>
-		)
-	}
+		</div>
+	)
+	// }
 }
 function getEvolutions(json){
 	var evolutions = [];
