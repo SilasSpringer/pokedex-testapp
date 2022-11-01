@@ -29,9 +29,10 @@ export default function Pokemon(props) {
             .catch(err=>console.log(err));
         }
         if(name !== undefined){
+            console.log("loading again");
             getPoke(name);
         }
-    }, []);
+    }, [name]);
     return(
         <div className="Container JustifyCenter Column BodyPadding PageWidth">
             <PokedexButton text="Back to Pokédex" /> 
