@@ -52,7 +52,6 @@ export default function Pokemon(props) {
                     </div>
                 </div>
             </div>
-            <PokemonEvolutions pokemon_name={`${Poke.name}`}/>
             <PokedexButton text="Back to Pokédex" />
         </div>
     )
