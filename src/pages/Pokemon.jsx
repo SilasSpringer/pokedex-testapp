@@ -9,9 +9,6 @@ import { StatListArray } from "../components/StatList";
 import StatList from "../components/StatList";
 import PokemonEvolutions from "../components/PokemonEvolutions";
 
-
-
-
 export default function Pokemon(props) {
     var {name} = useParams();
     if (name === undefined){
