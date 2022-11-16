@@ -37,13 +37,13 @@ export default function Pokemon(props) {
                 {`${Poke.name}`.toUpperCase()}
             </button>
             <div className="Container" style={{ width: '75vw', flex: '1 1 auto', flexWrap: 'wrap'}}>
-                <div style={{width: '15vw', 'minWidth': 'var(--Pokemon-min-width)'}}>
+                <div style={{minWidth: '15vw'}}>
                     <StatList stats={Poke.stats}/>
                 </div>
-                <div className="Container" style={{width: '25vw', 'minWidth': 'var(--Pokemon-min-width)'}}>
+                <div className="Container" style={{minWidth: '25vw'}}>
                     <SpriteElement pokemonEntry={Poke} />
                 </div>
-                <div className="Column" style={{width: '15vw', 'minWidth': 'var(--Pokemon-min-width)'}}>
+                <div className="Column" style={{minWidth: '15vw'}}>
                     <TypeList types={Poke.types}/>
                     <div className="StatListHalf">
                         <StatListArray height={Poke.height} weight={Poke.weight} />
