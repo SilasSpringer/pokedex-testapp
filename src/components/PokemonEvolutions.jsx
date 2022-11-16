@@ -62,7 +62,9 @@ const get_all = (json) => {
 				continue;
 			case "evolves_to":
                 if(value.length === 0) continue;
-				rv.push(get_all(value[0]));
+				for (const evolution in value){
+					rv.push(get_all(value[evolution]));
+				}
 				continue;
 			default:
 				continue;
